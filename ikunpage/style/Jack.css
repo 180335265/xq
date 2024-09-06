@@ -1,0 +1,732 @@
+@charset "utf-8";
+
+/**
+                      _ooOoo_
+                     o8888888o
+                     88" . "88
+                     (| -_- |)
+                     O\  =  /O
+                  ____/`---'\____
+                .'  \\|     |//  `.
+               /  \\|||  :  |||//  \
+              /  _||||| -:- |||||-  \
+              |   | \\\  -  /// |   |
+              | \_|  ''\---/''  |   |
+              \  .-\__  `-`  ___/-. /
+            ___`. .'  /--.--\  `. . __
+         ."" '<  `.___\_<|>_/___.'  >'"".
+        | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+        \  \ `-.   \_ __\ /__ _/   .-` /  /
+    ======`-.____`-.___\_____/___.-`____.-'======
+                      `=---='
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-希望各位模仿者手下留情，望佛祖保佑永远无BUG!
+-IKUN主页 IKunWl.COM QQ：2126245521
+-IKUN 一直被模仿 从未被超越 IKUN爱生活
+**/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #666;
+    font-size: 14px;
+    font-family: serif;
+    line-height: 1.8;
+    overflow: hidden;
+}
+
+a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+hr {
+    margin: 4px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+button:-moz-focusring {
+    outline: none;
+}
+
+button:focus {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: calc(100vh - 0px);
+    color: #fff;
+    background-color: #333;
+}
+
+.main::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 0px);
+    background-position: center center;
+    background-size: cover;
+    opacity: .6;
+}
+
+.main-name {
+    margin: 0;
+    padding: 40px 0;
+    font-size: 3.25rem;
+    text-align: center;
+}
+
+.main-name img {
+    width: 160px;
+}
+
+.main-tagline {
+    margin: 0;
+    padding: 40px 0;
+    opacity: .8;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.main-content {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    width: 950px;
+    overflow: hidden;
+}
+
+.main-content .flex {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0 40px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.main-content .flex span {
+    width: 16%;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    background: #2196f3;
+    border-radius: 6px;
+    background-image: linear-gradient(120deg, #c5b847, #009688);
+}
+
+.main-tab {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+    text-align: center;
+    height: 42px;
+    background-color: rgba(0, 1, 1, 0.5);
+}
+
+.nav-button {
+    display: block;
+    float: left;
+}
+
+.nav-button,
+.zuopin-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px 10px;
+    font-size: 14px;
+    color: #03a9f4;
+}
+
+.zuopin-button {
+    padding: 2px 6px;
+    text-align: center;
+}
+
+.nav-button.active {
+    padding: 10px 10px;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.zuopin-button.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.nav-item,
+.zuopin-item {
+    display: none;
+}
+
+.nav-item.active,
+.zuopin-item.active {
+    display: block;
+}
+
+.main-tab .main-nav {
+    margin: 0 auto;
+    padding: 0;
+    width: 950px;
+    overflow: hidden;
+}
+
+.main-tab .main-nav svg {
+    position: relative;
+    top: 4px;
+}
+
+.main-tab .main-nav span {
+    display: block;
+    color: #fff;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.main-home,
+.main-homead,
+.main-zuopin,
+.main-links,
+.main-footer {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.main-zuopin .main-zuo {
+    margin: 0;
+    padding: 10px;
+    width: calc(20% - 20px);
+    float: left;
+}
+
+.main-zuopin .zuopin-jg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    left: 20%;
+    transform: translateX(-50%);
+}
+
+.main-zuopin .main-you {
+    margin: 0;
+    padding: 10px 10px 10px 0;
+    width: calc(80% - 12px);
+    float: right;
+}
+
+.main-zuopin .main-you ul {
+    padding: 0 0 0 10px;
+    overflow: hidden;
+}
+
+.main-zuopin .main-you ul li,
+.main-zuopin .main-you ul p {
+    margin: 0 6px 6px 0;
+    padding: 4px 10px;
+    float: left;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.main-zuopin .main-you ul p {
+    margin: 0 0 6px;
+    float: inherit;
+}
+
+.main-zuopin hr {
+    clear: both;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-links ul {
+    margin: 6px 6px 2px;
+    width: calc(100% + 6px);
+    overflow: hidden;
+}
+
+.main-links ul li {
+    display: flex;
+    margin: 0 6px 6px 0;
+    padding: 6px;
+    width: calc(25% - 21px);
+    float: left;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-links ul li img.tou {
+    margin-right: 6px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid rgb(255 255 255 / 20%);
+    border-radius: 50%;
+}
+
+.main-links ul li .site {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.main-links ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-links .link-url {
+    margin: 2px 0 6px;
+    padding: 6px;
+    width: calc(100% - 33px);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 3px;
+    border-left: 3px solid #000000;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.main-links p {
+    width: calc(100% - 30px);
+}
+
+.main-homead,
+.main-footer {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.main-footer {
+    text-align: center;
+}
+
+.main-content .xuancai {
+    animation: Jack_xuan 3s linear 0s infinite;
+}
+
+@keyframes Jack_xuan {
+    0% {
+        color: #ffffff;
+    }
+
+    20% {
+        color: #ffe500;
+    }
+
+    40% {
+        color: #00ffe7;
+    }
+
+    60% {
+        color: #008eff;
+    }
+
+    80% {
+        color: #ff9800;
+    }
+
+    100% {
+        color: #fff387;
+    }
+}
+
+.tab-container {
+    position: fixed;
+    padding: 40px 0;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%) translateZ(0);
+    -webkit-transform: translate(-50%, -50%) translateZ(0);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lianxi,
+.zuopin {
+    width: 320px;
+    height: auto;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: none;
+    z-index: 10000;
+    box-shadow: 0px 0px 4px rgb(255, 255, 255);
+    transform: translate(-50%, -50%) translateZ(0);
+    -webkit-transform: translate(-50%, -50%) translateZ(0);
+    border-radius: 10px;
+}
+
+.zuopin {
+    width: 650px;
+}
+
+.lianxi .close,
+.zuopin .close {
+    display: flex;
+    padding: 10px;
+    color: #fff;
+    background: #333;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 10px 10px 0 0;
+}
+
+.lianxi .close button,
+.zuopin .close button {
+    color: #fff;
+    height: 20px;
+    line-height: 10px;
+    font-size: 12px;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.lianxi #lianxiContent {
+    text-align: center;
+}
+
+.lianxi #lianxiContent img {
+    margin-bottom: -8px;
+    width: 100%;
+}
+
+.lianxi #lianxiContent p {
+    padding: 10px 0;
+    color: #fff;
+    background: #333;
+    border-radius: 0 0 10px 10px;
+}
+
+.zuopin-news {
+    padding: 4px 10px;
+    color: #333;
+}
+
+.zuopin-news .zuopin-pay {
+    margin-top: 4px;
+    padding-top: 4px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.zuopin hr {
+    clear: both;
+    border-top: 1px solid #ccc;
+}
+
+.zuopin-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 0 10px;
+    overflow: hidden;
+}
+
+.zuopin-flex .zuopin-cdn {
+    width: 49.5%;
+}
+
+.zuopin-flex .zuopin-cdn p {
+    margin: 0 6px 6px 0;
+    padding: 4px 10px;
+    width: calc(100% - 20px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.zuopin-cdn-http {
+    display: block;
+    margin: 0 0 0 10px;
+    padding: 4px 10px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.zuopin-cdn-http a {
+    color: #ff0000;
+}
+
+.main-center {
+    text-align: center;
+}
+
+
+.main-top {
+    clear: both;
+    border-top: 1px solid rgb(255 255 255 / 10%);
+}
+
+.time {
+    margin: 0;
+    float: left;
+    width: 20%;
+    height: 38px;
+    line-height: 38px;
+}
+
+.yinyue {
+    display: flex;
+    margin: 4px 0 0;
+    padding: 4px 0;
+    width: 80%;
+    float: right;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.time #chinaTime {
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: 'UnidreamLED';
+    cursor: pointer;
+}
+
+.tips {
+    position: relative;
+    margin: 4px 0 0;
+    padding: 4px 0;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.youjian ul {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    width: 160px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ddd;
+}
+
+.youjian li {
+    padding-left: 15px;
+    height: 50px;
+    line-height: 50px;
+    list-style: none;
+    transition: .3s;
+}
+
+.youjian li:last-child {
+    border: none;
+}
+
+.youjian li:hover {
+    background-color: rgba(0, 0, 0, .4);
+    color: #fff;
+    box-shadow: 0 0 3px #00afb4;
+}
+
+.youjian a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-text {
+  color: #fff;
+  font-size: 24px;
+}
+
+.dnwu {
+    display: none;
+}
+
+@media only screen and (max-width:768px) {
+
+    .main-content,
+    .main-tab .main-nav {
+        width: calc(100% - 16px);
+    }
+
+    .main-name {
+        padding: 20px 0;
+    }
+
+    .main-name a {
+        display: block;
+        width: 100%;
+    }
+
+    .main-tagline {
+        padding: 20px 10px;
+    }
+
+    .main-content .flex {
+        padding: 0 0 20px;
+    }
+
+    .main-content .flex span {
+        width: 20%;
+    }
+
+    .tab-container {
+        margin: 16px 0 0;
+        padding: 0 0 20px;
+        height: calc(100vh - 140px);
+    }
+
+    .main-links ul li {
+        width: calc(33.3% - 22px);
+    }
+
+    .dnwu {
+        display: block;
+    }
+
+    .sjwu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:520px) {
+
+    .main-zuopin .main-zuo,
+    .main-zuopin .main-you {
+        width: 100%;
+    }
+
+    .main-zuopin .main-zuo {
+        padding: 10px 10px 0;
+    }
+
+    .main-zuopin .main-you {
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-zuopin .zuopin-jg::after {
+        position: inherit;
+    }
+
+    .main-zuopin .main-zuo ul {
+        width: calc(100% - 20px);
+    }
+
+    .main-zuopin .main-zuo .zuopin-button {
+        width: calc(25% - 12px);
+        float: left;
+    }
+
+    .main-zuopin .main-you ul {
+        margin: 6px 4px 4px;
+        padding: 0 6px 6px 0;
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .main-zuopin .main-you ul li,
+    .main-zuopin .main-you ul p {
+        margin: 6px 0 0 6px;
+    }
+
+    .main-zuopin .main-you ul p {
+        width: calc(100% - 26px);
+    }
+
+    .main-links ul li {
+        width: calc(50% - 24px);
+    }
+
+    .lianxi,
+    .zuopin {
+        width: calc(100% - 20px);
+    }
+
+    .zuopin-flex {
+        display: block;
+    }
+
+    .zuopin-flex .zuopin-cdn {
+        width: 100%;
+    }
+
+    .zuopin-flex .zuopin-cdn p {
+
+        width: calc(100% - 30px);
+    }
+
+    .zuopin-cdn-http {
+        margin-bottom: 10px;
+        width: calc(100% - 40px);
+    }
+
+    .tianqi {
+        width: 80%;
+    }
+}

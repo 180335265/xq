@@ -1,0 +1,4 @@
+# robots.txt ikun
+User-agent: *
+Disallow:/down/
+Disallow:/ikunpage/
